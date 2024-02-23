@@ -335,7 +335,7 @@ M.nvterm = {
       "Toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["ì"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,

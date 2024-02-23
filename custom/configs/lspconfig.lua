@@ -10,6 +10,10 @@ lspconfig.volar.setup{
   filetypes = {"typescript", "javascript, javascriptreact", "typescriptreact", "vue", "json"}
 }
 
+lspconfig.phpactor.setup{
+  filetypes = {"php"}
+}
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,

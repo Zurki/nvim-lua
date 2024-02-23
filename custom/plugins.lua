@@ -29,6 +29,7 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
@@ -46,6 +47,31 @@ local plugins = {
       require "custom.configs.conform"
     end,
   },
+  {
+    'mfussenegger/nvim-dap',
+    after = "coq_nvim",
+    config = function()
+      require "custom.configs.dap"
+    end,
+    requires = {
+      "Pocco81/DAPInstall.nvim",
+      "mfussenegger/nvim-dap-python",
+    },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    after = "nvim-dap",
+    config = function()
+      require("dapui").setup()
+    end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    after = "nvim-dap",
+    config = function()
+      require("nvim-dap-virtual-text").setup()
+    end,
+  }
 
   -- To make a plugin not be loaded
   -- {
