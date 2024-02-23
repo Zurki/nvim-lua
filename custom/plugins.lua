@@ -71,7 +71,14 @@ local plugins = {
     config = function()
       require("nvim-dap-virtual-text").setup()
     end,
-  }
+  },
+  {
+    "burntsushi/ripgrep",
+    config = function()
+      require("ripgrep").setup()
+    end,
+  },
+
 
   -- To make a plugin not be loaded
   -- {
