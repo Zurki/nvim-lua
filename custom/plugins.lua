@@ -73,12 +73,6 @@ local plugins = {
     end,
   },
   {
-    "burntsushi/ripgrep",
-    config = function()
-      require("ripgrep").setup()
-    end,
-  },
-  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       {
