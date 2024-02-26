@@ -84,8 +84,45 @@ local plugins = {
     },
     config = function()
       require("telescope").load_extension("live_grep_args")
+      require('telescope').setup{
+        defaults = {
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '-u' -- thats the new thing
+          },
+        }
+      }
     end
-  }
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+        { name = "copilot" },
+      },
+    },
+  },
 
 
   -- To make a plugin not be loaded
