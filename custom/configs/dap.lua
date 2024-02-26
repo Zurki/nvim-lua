@@ -14,26 +14,20 @@ vim.fn.sign_define('DapBreakpointCondition', {
     numhl = 'SpellBad'
 })
 
-dap.adapters.spryker = {
-    type = 'executable',
-    command = 'nodejs',
-    args = {"/opt/vscode-php-debug/out/phpDebug.js"},
+dap.adapters.php = {
+  type = 'executable',
+  command = 'node',
+  args = { '/Users/hhornschuh/.config/nvim/debug/php/out/phpDebug.js' }
 }
 
-dap.configurations.spryker = {
-    {
-        type = 'spryker',
-        request = 'launch',
-        name = 'Listen for xdebug',
-        host = 'spryker',
-        port = '80',
-        log = false,
-        pathMapping = {
-          ['/src/'] = "${workspaceFolder}"
-        }
-    },
+dap.configurations.php = {
+  {
+    type = 'php',
+    request = 'launch',
+    name = 'Listen for Xdebug',
+    port = 9003
+  }
 }
-
 require("dapui").setup({
     layouts = {
         {

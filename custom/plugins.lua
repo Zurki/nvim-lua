@@ -49,6 +49,7 @@ local plugins = {
   },
   {
     'mfussenegger/nvim-dap',
+    lazy = false,
     after = "coq_nvim",
     config = function()
       require "custom.configs.dap"
@@ -81,9 +82,13 @@ local plugins = {
         -- For major updates, this must be adjusted manually.
         version = "^1.0.0",
       },
+      {
+        'nvim-telescope/telescope-dap.nvim'
+      }
     },
     config = function()
       require("telescope").load_extension("live_grep_args")
+      require('telescope').load_extension('dap')
       require('telescope').setup{
         defaults = {
           vimgrep_arguments = {
