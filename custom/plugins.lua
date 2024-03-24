@@ -97,8 +97,9 @@ local plugins = {
     config = function()
       require("telescope").load_extension("live_grep_args")
       require('telescope').load_extension('dap')
+      require('telescope').load_extension("opener")
       require('telescope').setup{
-        defaults = {
+      defaults = {
           vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -139,7 +140,42 @@ local plugins = {
     end,
     ft = { "markdown" },
   },
- 
+  {
+    "nvim-neotest/nvim-nio"
+  },
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        theme = 'hyper',
+        config = {
+          week_header = {
+            enable = true,
+          },
+          shortcut = {
+            { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
+            {
+              icon = ' ',
+              icon_hl = '@variable',
+              desc = 'Files',
+              group = 'Label',
+              action = 'Telescope find_files',
+              key = 'f',
+            },
+            {
+              desc = ' Planets',
+              group = 'Number',
+              action = 'Telescope planets',
+              key = 'p',
+            },
+          },
+        },
+      }
+    end,
+    dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  }
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
