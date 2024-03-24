@@ -22,6 +22,14 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    dependencies = {
+      {
+        "windwp/nvim-ts-autotag",
+        config = function()
+          require('nvim-ts-autotag').setup()
+        end,
+      }
+    }
   },
 
   {
@@ -104,12 +112,6 @@ local plugins = {
         }
       }
     end
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function()
-      require("copilot_cmp").setup()
-    end,
   },
   {
     "github/copilot.vim",

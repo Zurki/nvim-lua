@@ -24,9 +24,12 @@ dap.configurations.php = {
   {
     type = 'php',
     request = 'launch',
-    name = 'Listen for Xdebug',
-    port = 9003
-  }
+    name = 'Listen for xdebug',
+    port = '9003',
+    log = true,
+    --  serverSourceRoot = 'localhost:8888',
+    --  localSourceRoot = '/Users/hhornschuh/Documents/dev/',
+  },
 }
 require("dapui").setup({
     layouts = {
