@@ -97,7 +97,6 @@ local plugins = {
     config = function()
       require("telescope").load_extension("live_grep_args")
       require('telescope').load_extension('dap')
-      require('telescope').load_extension("opener")
       require('telescope').setup{
       defaults = {
           vimgrep_arguments = {
